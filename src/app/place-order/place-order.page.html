@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title style="text-align: center">Place Your Order</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle>{{coffeeList.description}}</ion-card-subtitle>
+          <ion-card-title>R {{coffeeList.price}}</ion-card-title>
+        </ion-card-header>
+      
+        <ion-card-content>
+            <ion-item>
+                <ion-label  position="floating">Quantity</ion-label>
+                <ion-input [(ngModel)]="cupQuantity" (keyup)="checkPrice(coffeeList.code, coffeeList.description, coffeeList.price, cupQuantity);"></ion-input>
+              </ion-item>
+            <ion-list>
+                <ion-radio-group [(ngModel)]="milk">
+                  <ion-list-header>
+                    <ion-label>Milk</ion-label>
+                  </ion-list-header>
+              
+                  <ion-item>
+                    <ion-label>Yes</ion-label>
+                    <ion-radio slot="start" value="true" checked></ion-radio>
+                  </ion-item>
+              
+                  <ion-item>
+                    <ion-label>No</ion-label>
+                    <ion-radio slot="start" value="false"></ion-radio>
+                  </ion-item>
+                </ion-radio-group>
+              </ion-list>
+
+              <ion-list>
+                  <ion-radio-group ngModel="spoonsOfSugar">
+                    <ion-list-header>
+                      <ion-label>Spoons of sugar</ion-label>
+                    </ion-list-header>
+                
+                    <ion-item>
+                      <ion-label>1</ion-label>
+                      <ion-radio  slot="start" value="1" [checked]></ion-radio>
+                    </ion-item>
+                
+                    <ion-item>
+                      <ion-label>2</ion-label>
+                      <ion-radio slot="start" value="2"></ion-radio>
+                    </ion-item>
+                
+                    <ion-item>
+                      <ion-label>3</ion-label>
+                      <ion-radio slot="start" value="3"></ion-radio>
+                    </ion-item>
+
+                    <ion-item>
+                        <ion-label>4</ion-label>
+                        <ion-radio slot="start" value="4"></ion-radio>
+                      </ion-item>
+                  </ion-radio-group>
+                </ion-list>
+                <h2>Total Price: R{{wayprice}}</h2>
+        </ion-card-content>
+      </ion-card>
+  <ion-button expand="full" color="secondary" routerLink="/orders" (click)="confirmOrder(code, coffeeList.pic, coffeeList.description, coffeeList.price,  cupQuantity, milk, spoonsOfSugar, wayprice)">Place order</ion-button>
+</ion-content>
+
+
+ <!--    
+<ion-button expand="full" color="secondary" routerLink="/orders" (click)="coffeeList.code, coffeeList.pic, coffeeList.description, coffeeList.price,  cupQuantity, milk, spoonsOfSugar, wayprice">Place order</ion-button>
+
+ -->
