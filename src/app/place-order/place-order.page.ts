@@ -8,12 +8,14 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class PlaceOrderPage implements OnInit {
   coffeeCode
-  coffeeList
+  coffeeList=[]
   wayprice
 
   constructor(public coffeeListService : OrderServiceService, public route: ActivatedRoute) {
-    this.coffeeList = this.coffeeListService.getCoffeeList(this.coffeeCode)
-    console.log( "1    "   + this.coffeeCode)
+   
+
+
+    
   }
   checkPrice(code, description, price, quantity){
 

@@ -6,7 +6,9 @@ import { Injectable } from '@angular/core';
 export class OrderServiceService {
   codes
   orders = []
+  currentCode
   coffeeCategories=[
+    {code: "0011", pic: "assets/different-coffees/edited-sizes/Cuppacino2.jpg", description: "Cuppacino", price: "23.00"},
     {code: "0012", pic: "assets/different-coffees/edited-sizes/Latte-cup.jpg", description: "Latte", price: "25.00"},
     {code: "0013", pic: "assets/different-coffees/edited-sizes/espresso.jpg", description: "Espresso", price: "21.00"},
     {code: "0014", pic: "assets/different-coffees/edited-sizes/plain-coffee.jpg", description: "Plain Coffee", price: "18.00"}
@@ -16,10 +18,10 @@ export class OrderServiceService {
   oneCoffeeOrder=[]
   singlePrice
   getCoffeeList(code) {
-    
+    this.currentCode = code
     let i= 0  
     for( i = 0; i < this.coffeeCategories.length; i++){
-      if (code = this.coffeeCategories[i].code){
+      if (this.currentCode === this.coffeeCategories[i].code){
          return this.coffeeCategories[i]
       }
    
