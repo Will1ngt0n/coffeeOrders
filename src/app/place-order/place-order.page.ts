@@ -8,11 +8,13 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class PlaceOrderPage implements OnInit {
   coffeeCode
-  coffeeList=[]
+  coffeeList
   wayprice
 
+  
+  
   constructor(public coffeeListService : OrderServiceService, public route: ActivatedRoute) {
-   
+    
 
 
     
@@ -39,7 +41,7 @@ export class PlaceOrderPage implements OnInit {
     console.log(totalPrice)
     this.coffeeListService.confirmOrders(code, pic, description, price, cupQuantity,  milkBoolean, sugarQuantity, totalPrice)
   }
-  ngOnInit() {
+ ngOnInit() {
     this.route.paramMap.subscribe(params => {
       this.coffeeCode = params.get('code');
       this.coffeeList = this.coffeeListService.getCoffeeList(this.coffeeCode)

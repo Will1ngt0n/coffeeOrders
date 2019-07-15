@@ -19,10 +19,11 @@ export class OrderServiceService {
   singlePrice
   getCoffeeList(code) {
     this.currentCode = code
+    console.log(code)
     let i= 0  
     for( i = 0; i < this.coffeeCategories.length; i++){
       if (this.currentCode === this.coffeeCategories[i].code){
-         return this.coffeeCategories[i]
+        return this.coffeeCategories[i]
       }
    
     }

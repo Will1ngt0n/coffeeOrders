@@ -5,7 +5,7 @@
 </ion-header>
 
 <ion-content>
-    <ion-card>
+    <ion-card *ngIf="coffeeList">
         <ion-card-header>
           <ion-card-subtitle>{{coffeeList.description}}</ion-card-subtitle>
           <ion-card-title>R {{coffeeList.price}}</ion-card-title>
@@ -64,7 +64,7 @@
                 <h2>Total Price: R{{wayprice}}</h2>
         </ion-card-content>
       </ion-card>
-  <ion-button expand="full" color="secondary" routerLink="/orders" (click)="confirmOrder(code, coffeeList.pic, coffeeList.description, coffeeList.price,  cupQuantity, milk, spoonsOfSugar, wayprice)">Place order</ion-button>
+  <ion-button expand="full" color="secondary" routerLink="/orders" (click)="confirmOrder(coffeeList.code, coffeeList.pic, coffeeList.description, coffeeList.price,  cupQuantity, milk, spoonsOfSugar, wayprice)">Place order</ion-button>
 </ion-content>
 
 
